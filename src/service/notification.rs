@@ -1,7 +1,7 @@
 use std::fmt::format;
 use std::thread;
-use rocket::http::hyper::request;
 
+use rocket::http::hyper::request;
 use rocket::http::Status;
 use rocket::log;
 use rocket::serde::json::to_string;
