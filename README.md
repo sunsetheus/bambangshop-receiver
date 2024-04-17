@@ -86,6 +86,16 @@ This is the place for you to write reflections:
 
 #### Reflection Subscriber-1
 1. In this tutorial, we used RwLock<> to synchronise the use of Vec of Notifications. Explain why it is necessary for this case, and explain why we do not use Mutex<> instead?
+<br>
+RwLock<> bikin kita read data secara comcurrently dan 1 operasi write pada 1 waktu sekaligus. Sedangkan kl pake mutex<> gabisa read secara concurently. Sedangkan kita membutuhkan pembacaan notifikasi yang cukup banyak, jadi better pake  RwLock<> drpd Mutex<>
+<br>
 2. In this tutorial, we used lazy_static external library to define Vec and DashMap as a “static” variable. Compared to Java where we can mutate the content of a static variable via a static function, why did not Rust allow us to do so?
+<br>
+Karena entga thread safe. Kalau pake bisa diubah (mutable) bisa aja ada kasus multiple thread bisa akases dan modif isi dari static var secara konkuren, dan bakal nambah masalah baru dalam pemrograman.
 
 #### Reflection Subscriber-2
+1. Engga, hehe maaf yak. Karena sedang mengejar TK :((. Tapi sekilas yang saya dapet, saya belajar tntg dashmap sih, vibe nya kayak sda gitu soalnya dan sebenanrnya dashmap itu kayak hashmal tali bisa secara konkuren dalam write dan read.
+
+2. observer pattern bantu kita buat tambahin subscriber tanoa modif si publisher. karema pub kan gapunya responsible untuk save siaoa subnya. Itu yg implementasi ya si observer. Kalo tambahin bamyak instsnce, bakal nimbilin trouble.
+
+3. Sudah dan makin memudahkan karena kan belum ada UI buat api jd kl udah buat endpoint nya dan param, bisa lgsg cb kayak bisa atsu msh 500 internal srrber error, atau buat cek responsenya bener engga, dan dengan tambahan test buatan sendiri lebih custumize aja case by case yg mau dihandle/cek
