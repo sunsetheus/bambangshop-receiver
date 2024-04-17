@@ -1,2 +1,2 @@
 mod subscriber;
-mod notification;
+pub(crate) mod notification;
