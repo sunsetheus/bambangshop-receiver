@@ -93,4 +93,8 @@ impl NotificationService {
         let subscriber_result = NotificationRepository::add(payload.clone());
         return Ok(subscriber_result);
     }
+
+    pub fn list_messages() -> Result<Vec<String>> {
+        return Ok(NotificationRepository::list_all_as_string());
+    }
 }

@@ -1,6 +1,6 @@
-use rocket::fairing::AdHoc;
-
 pub mod notification;
+
+use rocket::fairing::AdHoc;
 
 pub fn route_stage() -> AdHoc {
     return AdHoc::on_ignite("Initializing controller routes...", |rocket| async {
@@ -9,7 +9,9 @@ pub fn route_stage() -> AdHoc {
             routes![
                 notification::subscribe,
                 notification::unsubscribe,
-                notification::recieve
+                notification::recieve,
+                notification::list,
             ],
+        )
     });
 }
